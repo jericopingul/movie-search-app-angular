@@ -66,19 +66,18 @@ export class ResultsComponent implements OnInit {
       if (state.sort) {
         this.sortBy(state.sort);
       }
-      console.log('state', state);
     });
   }
 
   // TODO types
-  sortBy(option) {
+  sortBy(option: any) {
     this.movies =
       option === MovieActions.SORT_YEAR
         ? sortByAscYear(this.movies)
         : sortByAscTitle(this.movies);
   }
 
-  filterByYear(year) {
+  filterByYear(year: any) {
     this.movies = this.movies.filter(
       movie => year === 'All' || year === movie.Year
     );
