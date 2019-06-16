@@ -51,7 +51,7 @@ export class ResultsComponent implements OnInit {
   error: boolean;
 
   constructor(private store: Store<AppState>) {
-    this.movies$ = this.store.select('movies');
+    this.movies$ = this.store.select('app');
   }
 
   ngOnInit() {

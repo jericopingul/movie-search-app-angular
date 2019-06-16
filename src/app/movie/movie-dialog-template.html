@@ -1,6 +1,8 @@
 <h1 mat-dialog-title>Plot for: {{ data.Title }}</h1>
 <mat-dialog-content>
-  {{ data.Plot }}
+  <section fxFlex class="mat-typography">
+    <p>{{ data.Plot }}</p>
+  </section>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button mat-dialog-close>Close</button>

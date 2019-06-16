@@ -49,13 +49,10 @@ import { ControlsComponent } from './controls/controls.component';
     FlexLayoutModule,
     HttpClientModule,
     StoreModule.forRoot({
-      movies: moviesReducer
+      app: moviesReducer
     })
   ],
-  providers: [
-    MovieService
-    // { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }
-  ],
+  providers: [MovieService],
   bootstrap: [AppComponent],
   entryComponents: [ResultsComponent, MoviePlotDialog]
 })

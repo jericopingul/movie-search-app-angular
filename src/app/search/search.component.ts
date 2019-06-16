@@ -18,7 +18,7 @@ export class SearchComponent implements OnInit {
     private movieService: MovieService,
     private store: Store<AppState>
   ) {
-    this.store.select('movies');
+    this.store.select('app');
   }
 
   ngOnInit() {}

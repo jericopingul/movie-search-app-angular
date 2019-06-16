@@ -26,7 +26,7 @@ export class ControlsComponent implements OnInit {
   ];
 
   constructor(private store: Store<AppState>) {
-    this.movies$ = this.store.select('movies');
+    this.movies$ = this.store.select('app');
   }
 
   ngOnInit() {
