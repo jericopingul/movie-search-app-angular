@@ -1,0 +1,6 @@
+<mat-card (click)="onClick(movie)">
+  <mat-card-content fxFlex fxLayout="row" fxLayoutGap="10px">
+    <img mat-card-sm-image src="{{ movie.Poster }}" alt="{{ movie.Title }}" />
+    <h3>{{ movie.Title }} ({{ movie.Year }})</h3>
+  </mat-card-content>
+</mat-card>

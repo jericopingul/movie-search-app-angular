@@ -1,0 +1,19 @@
+<mat-form-field>
+  <mat-label>Year</mat-label>
+  <mat-select (selectionChange)="onFilterSelect($event)">
+    <mat-option *ngFor="let year of yearOptions" [value]="year">{{
+      year
+    }}</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-button-toggle-group
+  name="fontStyle"
+  aria-label="Font Style"
+  (change)="onSortToggle($event)"
+>
+  <mat-button-toggle
+    *ngFor="let sortOption of sortOptions"
+    value="{{ sortOption.key }}"
+    >{{ sortOption.value }}</mat-button-toggle
+  >
+</mat-button-toggle-group>

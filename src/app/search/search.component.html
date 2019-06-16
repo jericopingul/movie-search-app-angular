@@ -1,0 +1,19 @@
+<div class="search">
+  <div fxFlex fxFlexOffset="20px" class="form-size">
+    <form (ngSubmit)="onSubmit()" fxLayout="row" fxFlex>
+      <mat-form-field appearance="outline" fxFlex="70%">
+        <input
+          matInput
+          [(ngModel)]="name"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Movie Name"
+          type="text"
+          required
+        />
+      </mat-form-field>
+      <button fxFlex="30%" type="Submit" mat-raised-button color="primary">
+        Search
+      </button>
+    </form>
+  </div>
+</div>

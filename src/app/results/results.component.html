@@ -1,0 +1,35 @@
+<div
+  *ngIf="movies && movies.length > 0"
+  fxFlex
+  fxLayout="column"
+  fxLayoutGap="50px"
+>
+  <div fxFlex fxLayoutAlign="space-between" fxLayout="row">
+    <section fxFlex class="mat-typography">
+      <h1>Movie Results</h1>
+    </section>
+    <app-controls
+      fxFlex
+      fxLayout="row"
+      fxLayoutAlign="flex-end"
+      fxLayoutGap="10px"
+    ></app-controls>
+  </div>
+  <app-movie fxFlex *ngFor="let movie of movies" [movie]="movie"></app-movie>
+</div>
+<div fxFlex *ngIf="loading && !error">
+  <mat-spinner></mat-spinner>
+  <section fxFlex class="mat-typography">
+    <h4>Loading...</h4>
+  </section>
+</div>
+<mat-card fxFlex *ngIf="error">
+  <mat-card-title>Error in search</mat-card-title>
+  <mat-card-content>Something went wrong. Please try again.</mat-card-content>
+</mat-card>
+<mat-card fxFlex *ngIf="!loading && !error && (!movies || movies.length === 0)">
+  <mat-card-title>
+    Please make a search
+  </mat-card-title>
+  <mat-card-content>Enter a movie name.</mat-card-content>
+</mat-card>
