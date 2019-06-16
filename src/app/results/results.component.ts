@@ -44,22 +44,21 @@ const sortByAscYear = (movies: Movie[]) => {
   styleUrls: ['./results.component.scss']
 })
 export class ResultsComponent implements OnInit {
-  movies$: Observable<Movie[]>;
+  appState$: Observable<AppState>;
   movies: Movie[];
   subscription: Subscription;
   loading: boolean;
   error: boolean;
 
   constructor(private store: Store<AppState>) {
-    this.movies$ = this.store.select('app');
+    this.appState$ = this.store.select('app');
   }
 
   ngOnInit() {
-    this.subscription = this.movies$.subscribe(state => {
-      const currentState = state as any;
-      this.movies = currentState.movies;
-      this.loading = currentState.loadStatus.loading;
-      this.error = currentState.loadStatus.error;
+    this.subscription = this.appState$.subscribe(state => {
+      this.movies = state.movies;
+      this.loading = state.loadStatus.loading;
+      this.error = state.loadStatus.error;
       if (state.filter) {
         this.filterByYear(state.filter);
       }
@@ -69,15 +68,14 @@ export class ResultsComponent implements OnInit {
     });
   }
 
-  // TODO types
-  sortBy(option: any) {
+  sortBy(option: string) {
     this.movies =
       option === MovieActions.SORT_YEAR
         ? sortByAscYear(this.movies)
         : sortByAscTitle(this.movies);
   }
 
-  filterByYear(year: any) {
+  filterByYear(year: string) {
     this.movies = this.movies.filter(
       movie => year === 'All' || year === movie.Year
     );
