@@ -15,7 +15,6 @@ export class MovieComponent implements OnInit {
   ngOnInit() {}
 
   onClick(item: Movie) {
-    console.log(item);
     this.movieService.getById(item.imdbID).subscribe(movieDetails => {
       this.dialog.open(MoviePlotDialog, {
         data: movieDetails
