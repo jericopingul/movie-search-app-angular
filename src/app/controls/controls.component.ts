@@ -12,7 +12,7 @@ import { AppState } from '../models/appstate';
 })
 export class ControlsComponent implements OnInit {
   yearOptions: Set<string>;
-  movies$: Observable<Movie[]>;
+  appState$: Observable<AppState>;
   subscription: Subscription;
   sortOptions: any[] = [
     {
@@ -26,11 +26,11 @@ export class ControlsComponent implements OnInit {
   ];
 
   constructor(private store: Store<AppState>) {
-    this.movies$ = this.store.select('app');
+    this.appState$ = this.store.select('app');
   }
 
   ngOnInit() {
-    this.subscription = this.movies$.subscribe(state => {
+    this.subscription = this.appState$.subscribe(state => {
       const currentState = state as any;
       this.updateYearOptions(currentState.movies);
     });
