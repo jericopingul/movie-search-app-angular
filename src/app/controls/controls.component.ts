@@ -11,10 +11,10 @@ import { AppState } from '../models/appstate';
   styleUrls: ['./controls.component.scss']
 })
 export class ControlsComponent implements OnInit {
-  private yearOptions: Set<string>;
-  private movies$: Observable<Movie[]>;
-  private subscription: Subscription;
-  private sortOptions: any[] = [
+  yearOptions: Set<string>;
+  movies$: Observable<Movie[]>;
+  subscription: Subscription;
+  sortOptions: any[] = [
     {
       key: MovieActions.SORT_YEAR,
       value: 'Oldest > Newest'

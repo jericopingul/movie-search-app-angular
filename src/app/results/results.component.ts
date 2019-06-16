@@ -44,11 +44,11 @@ const sortByAscYear = (movies: Movie[]) => {
   styleUrls: ['./results.component.scss']
 })
 export class ResultsComponent implements OnInit {
-  private movies$: Observable<Movie[]>;
-  private movies: Movie[];
-  private subscription: Subscription;
-  private loading: boolean;
-  private error: boolean;
+  movies$: Observable<Movie[]>;
+  movies: Movie[];
+  subscription: Subscription;
+  loading: boolean;
+  error: boolean;
 
   constructor(private store: Store<AppState>) {
     this.movies$ = this.store.select('movies');

@@ -11,8 +11,8 @@ import { AppState } from '../models/appstate';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  private name: string = '';
-  private subscription: Subscription;
+  name: string = '';
+  subscription: Subscription;
 
   constructor(
     private movieService: MovieService,
