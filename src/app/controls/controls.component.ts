@@ -31,8 +31,7 @@ export class ControlsComponent implements OnInit {
 
   ngOnInit() {
     this.subscription = this.appState$.subscribe(state => {
-      const currentState = state as any;
-      this.updateYearOptions(currentState.movies);
+      this.updateYearOptions(state.movies);
     });
   }
 
